@@ -1,0 +1,87 @@
+{
+  "name": "n8n-nodes-ethena",
+  "version": "1.0.0",
+  "description": "n8n community nodes for Ethena Protocol - USDe synthetic dollar, sUSDe staking, delta-neutral strategies, ENA governance, and DeFi integrations",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "ethena",
+    "usde",
+    "susde",
+    "stablecoin",
+    "defi",
+    "yield",
+    "staking",
+    "delta-neutral",
+    "ena",
+    "governance",
+    "ethereum",
+    "blockchain"
+  ],
+  "license": "BUSL-1.1",
+  "homepage": "https://velobpa.com",
+  "author": {
+    "name": "Velocity BPA",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-ethena.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "dist/nodes/Ethena/Ethena.node.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/EthenaNetwork.credentials.js",
+      "dist/credentials/EthenaApi.credentials.js",
+      "dist/credentials/EthenaExchange.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Ethena/Ethena.node.js",
+      "dist/nodes/Ethena/EthenaTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "gulp": "^4.0.2",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.30.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "ethers": "^6.11.1",
+    "graphql-request": "^6.1.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "^1.30.0"
+  }
+}
